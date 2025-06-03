@@ -2,6 +2,8 @@
 package Programa;
 
 import java.util.Scanner;
+import java.time.LocalDateTime; // Línea añadida
+import java.time.format.DateTimeFormatter; // Línea añadida
 
 public class Programa02 {
     public static void main(String[] args) {
@@ -26,8 +28,13 @@ public class Programa02 {
         // Calcular sueldo neto
         double sueldoNeto = sueldoBruto - descuentoONP;
 
+        // Obtener fecha y hora actual
+        LocalDateTime fechaHoraActual = LocalDateTime.now(); // Línea añadida
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Línea añadida
+
         // Mostrar resultados
         System.out.println("\n--- Boleta de Pago ---");
+        System.out.println("Fecha y Hora: " + fechaHoraActual.format(formato)); // Línea añadida
         System.out.println("Empleado: " + nombre);
         System.out.printf("Sueldo Bruto: S/ %.2f\n", sueldoBruto);
         System.out.printf("Descuento ONP (13%%): S/ %.2f\n", descuentoONP);
